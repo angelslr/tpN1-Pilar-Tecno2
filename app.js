@@ -30,7 +30,12 @@ function getCountryTranslatedName(isoCode, language){
  * @returns {Array}
  */
 function getCountriesBySubregion(subregion){
-    //Complete with your code
+    const countriesBySubregion = [];
+    for (let i = 0; i < countries.length; i++) {
+        if (subregion == countries[i].subregion)
+            countriesBySubregion.push(countries[i]);
+    }
+    return countriesBySubregion.length ? countriesBySubregion : "No hay países en la subregión especificada.";
 }
 
 function main() {
