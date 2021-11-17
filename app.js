@@ -5,7 +5,11 @@ const countries = require('./countries.json');
  * @returns {Object}
  */
 function getCountryByIso3(isoCode){
-    //Complete with your code
+    for (let i = 0; i < countries.length; i++) {
+        if (isoCode == countries[i].iso3)
+            return countries[i];
+    }
+    return "No se encontró el país.";
 }
 
 /**
