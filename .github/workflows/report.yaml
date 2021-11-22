@@ -20,4 +20,4 @@ jobs:
       - name: Install mocha
         run: npm install -g mocha
       - name: "Run Test"
-        run: npm run mocha
+        run: mocha ./test.js
