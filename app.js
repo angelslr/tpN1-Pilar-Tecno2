@@ -49,11 +49,11 @@ function main() {
 
     console.log(
         '///// Ejercicio 1 /////\n',
-        getCountryByIso3('ARG'),
+        getCountryByIso3('CHN'),
         '\n');
     console.log(
         '///// Ejercicio 2 /////\n',
-        getCountryTranslatedName('ARG', 'ja'),
+        getCountryTranslatedName('CHN', 'ja'),
         '\n');
     console.log(
         '///// Ejercicio 3 /////\n',
