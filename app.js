@@ -63,3 +63,9 @@ function main() {
 }
 
 main();
+
+exports._test = {
+    getCountryByIso3,
+    getCountryTranslatedName,
+    getCountriesBySubregion
+}
