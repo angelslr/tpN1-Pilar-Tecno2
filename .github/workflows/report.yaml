@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - name: 'Install Node'
-        uses: actions/setup-node@v1
-      - name: Install mocha
-        run: npm install -g mocha
+        uses: actions/setup-node@v2.4.1
       - name: Install dependencies
         run: npm install 
+      - name: Install mocha
+        run: npm install -g mocha
       - name: "Run Test"
-        run: npm run test
+        run: npm run mocha
