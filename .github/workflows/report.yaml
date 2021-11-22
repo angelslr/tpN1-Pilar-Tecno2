@@ -11,13 +11,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 'Install Node'
-        uses: actions/setup-node@v2.4.1
-      - name: Install dependencies
-        run: npm install 
-      - name: Install chai
-        run: npm install -g chai
-      - name: Install mocha
-        run: npm install -g mocha
-      - name: "Run Test"
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '${{ matrix.node }}'
+      - uses: actions/checkout@v2
+      - name: 'Cache node_modules'
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-v${{ matrix.node }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-v${{ matrix.node }}-
+      - name: Install Dependencies
+        run: npm install
+      - name: Run All Node.js Tests
         run: npm run test
