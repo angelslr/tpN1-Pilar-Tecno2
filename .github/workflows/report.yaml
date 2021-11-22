@@ -1,19 +1,16 @@
-name: Generate report
-
+name: 'Test Report'
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  
-  workflow_dispatch:
-
+  workflow_run:
+    workflows: ['Node.js environment']
+    types:
+      - completed
 jobs:
-  build:
+  report:
     runs-on: ubuntu-latest
     steps:
-    - uses: imjohnbo/workflow-reports-action@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: dorny/test-reporter@v1
       with:
-        owner: octocat
+        artifact: test-results
+        name: JEST Tests
+        path: '*.xml'
+        reporter: jest-junit
