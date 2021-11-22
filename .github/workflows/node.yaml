@@ -1,0 +1,21 @@
+name: Node.js environment
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.4.1
+
+        with:
+          node-version: '14'
+      - run: npm install
+      - run: npm test

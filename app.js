@@ -4,10 +4,10 @@ const countries = require('./countries.json');
  * @param  {string} isoCode
  * @returns {Object}
  */
-function getCountryByIso3(isoCode){
+function getCountryByIso3(isoCode) {
     for (let i = 0; i < countries.length; i++) {
         if (isoCode == countries[i].iso3)
-            return countries[i];
+            return (countries[i].name + ', ' + countries[i].capital);
     }
     return "No se encontró el país.";
 }
@@ -18,7 +18,7 @@ function getCountryByIso3(isoCode){
  * @param  {string} language example: "es"
  * @returns {string}
  */
-function getCountryTranslatedName(isoCode, language){
+function getCountryTranslatedName(isoCode, language) {
     for (let i = 0; i < countries.length; i++) {
         if (isoCode == countries[i].iso3)
             return countries[i].translations[language];
@@ -29,16 +29,24 @@ function getCountryTranslatedName(isoCode, language){
  * @param  {string} subregion
  * @returns {Array}
  */
-function getCountriesBySubregion(subregion){
+function getCountriesBySubregion(subregion) {
     const countriesBySubregion = [];
     for (let i = 0; i < countries.length; i++) {
         if (subregion == countries[i].subregion)
-            countriesBySubregion.push(countries[i]);
+            countriesBySubregion.push(countries[i].name + ', ' + countries[i].capital);
     }
     return countriesBySubregion.length ? countriesBySubregion : "No hay países en la subregión especificada.";
 }
 
 function main() {
+    var cowsay = require("cowsay");
+
+    console.log(cowsay.say({
+        text: "Buscador de países",
+        e: "oO",
+        T: "U "
+    }));
+
     console.log(
         '///// Ejercicio 1 /////\n',
         getCountryByIso3('ARG'),
