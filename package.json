@@ -11,7 +11,7 @@
   "devDependencies": {},
   "scripts": {
     "app": "node app.js",
-    "test": "mocha"
+    "test": "mocha test.js"
   },
   "repository": {
     "type": "git",
