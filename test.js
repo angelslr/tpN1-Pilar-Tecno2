@@ -3,7 +3,7 @@ const expect = require('chai').expect;
 
 describe('Simple Math Test', () => {
     it('should return string', () => {
-        expect(app._test.getCountryByIso3()).to.be.an('string');
+        expect(app._test.getCountryByIso3()).to.
     });
     it('should return string', () => {
         expect(app._test.getCountryTranslatedName()).to.be.an('string');
